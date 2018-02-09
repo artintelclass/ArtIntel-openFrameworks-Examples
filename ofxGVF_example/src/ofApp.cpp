@@ -69,14 +69,14 @@ void ofApp::update()
                         i++;
                     }
                 }
-                speed= v.length();
+                speed = v.length();
                 gesture.setAutoAdjustRanges(true);
                 if (speed>1.1 || position>.985)
                     gestureDone=true;
                 if (gestureFound && !gestureDone){
                     ofxOscMessage msg;
                     msg.setAddress(oscAddress);
-                    msg.addIntArg(probableGesture);
+                    msg.addFloatArg(float(probableGesture)/3.);
                     msg.addFloatArg(position);
                     msg.addFloatArg(speed);
                     osc.sendMessage(msg);

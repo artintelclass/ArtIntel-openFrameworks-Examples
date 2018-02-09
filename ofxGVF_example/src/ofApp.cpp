@@ -76,7 +76,7 @@ void ofApp::update()
                 if (gestureFound && !gestureDone){
                     ofxOscMessage msg;
                     msg.setAddress(oscAddress);
-                    msg.addFloatArg(float(probableGesture)/3.);
+                    msg.addIntArg(probableGesture);
                     msg.addFloatArg(position);
                     msg.addFloatArg(speed);
                     osc.sendMessage(msg);
